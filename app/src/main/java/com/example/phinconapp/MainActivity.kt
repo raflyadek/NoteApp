@@ -1,9 +1,12 @@
 package com.example.phinconapp
 
 import android.os.Bundle
+import android.view.Window
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -11,6 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.phinconapp.navigation.NavigationGraph
 import com.example.phinconapp.ui.theme.PhinconAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,9 +26,22 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PhinconAppTheme {
-
+                NoteApp()
             }
         }
+    }
+}
+
+@Composable
+fun NoteApp() {
+    val navController = rememberNavController()
+    Scaffold(
+        contentWindowInsets = WindowInsets(0.dp)
+    ) { paddingValue ->
+        NavigationGraph(
+            navController = navController,
+            paddingValues = paddingValue
+        )
     }
 }
 
