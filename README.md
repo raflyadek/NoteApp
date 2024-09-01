@@ -9,6 +9,7 @@ This `Note` Android App i build using `kotlin` and `jetpack compose`. I use `Roo
 <img src="app/src/main/res/drawable/note_update1" width=300 height=400>
 <img src="app/src/main/res/drawable/note_after_update" width=300 height=400>
 <img src="app/src/main/res/drawable/note_delete" width=300 height=400>
+
 ## Prerequisites
 
 Basic `Kotlin` and `Jetpack Compose`, knowledge of `Database` by Room library.
