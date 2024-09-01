@@ -17,7 +17,10 @@ interface NoteDao {
     suspend fun update(note: Note)
 
     @Delete
-    suspend fun delete(note: List<Note>)
+    suspend fun delete(note: Note)
+
+    @Query("SELECT* FROM Note WHERE id = :id")
+    fun getNoteById(id: Int): Flow<Note>
 
     @Query("SELECT * FROM Note")
     fun getAllNote(): Flow<List<Note>>
@@ -25,9 +28,4 @@ interface NoteDao {
     @Query("SELECT * FROM Note ORDER BY text ASC")
     fun sortByText (): Flow<List<Note>>
 
-    @Query("SELECT * FROM Note WHERE emotion < :number")
-    fun filterEmotionLessThan(number: Int): Flow<List<Note>>
-
-    @Query("SELECT* FROM Note WHERE emotion > :number")
-    fun filterEmotionGreaterThan(number: Int): Flow<List<Note>>
 }

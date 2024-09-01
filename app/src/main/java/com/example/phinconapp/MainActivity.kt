@@ -40,7 +40,7 @@ fun NoteApp() {
     ) { paddingValue ->
         NavigationGraph(
             navController = navController,
-            paddingValues = paddingValue
+            paddingValues = paddingValue,
         )
     }
 }

@@ -9,5 +9,4 @@ data class Note(
     val id: Int = 0,
     val title: String,
     val text: String,
-    val emotion: Int
 )

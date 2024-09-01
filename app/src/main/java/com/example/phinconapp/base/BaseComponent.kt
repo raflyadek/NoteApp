@@ -8,12 +8,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -34,7 +37,7 @@ fun Spacer(size: Dp) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomToolbar(title: String, useArrowBack: Boolean? = false, onBack: () -> Unit) {
+fun CustomToolbar(title: String, useButton: Boolean? = false, onDone: () -> Unit, useArrowBack: Boolean? = false, onBack: () -> Unit) {
     TopAppBar(
         windowInsets = WindowInsets(0.dp),
         title = {
@@ -44,7 +47,13 @@ fun CustomToolbar(title: String, useArrowBack: Boolean? = false, onBack: () -> U
             containerColor = MaterialTheme.colorScheme.background,
             titleContentColor = MaterialTheme.colorScheme.scrim
         ),
-//        actions = button done buat ngilangin keyboard kalou udah selesai nulis + save,
+        actions = {
+            if(useButton == true) {
+                TextButton(onClick = { onDone() }) {
+                    Text("Done", color = Color.Black)
+                }
+            }
+        },
         navigationIcon = {
             if (useArrowBack == true) {
                 IconButton(onClick = { onBack() }) {
@@ -55,6 +64,22 @@ fun CustomToolbar(title: String, useArrowBack: Boolean? = false, onBack: () -> U
                 }
             }
         }
+    )
+}
+
+@Composable
+fun ExtendedFab(onClick: () -> Unit) {
+    ExtendedFloatingActionButton(
+        text = { Text(text = "Cerita") },
+        icon = {
+            Icon(
+                imageVector = Icons.Filled.Add,
+                contentDescription = "add note"
+            )
+        },
+        onClick = { onClick() },
+        modifier = Modifier
+            .padding(end = 16.dp, bottom = 48.dp)
     )
 }
 
@@ -103,7 +128,7 @@ fun InternalPreview() {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            CustomToolbar(title = "title", useArrowBack = true) {
+            CustomToolbar(title = "title", useArrowBack = true, useButton = true , onDone = {}) {
                 
             }
         }
