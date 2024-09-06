@@ -18,6 +18,8 @@ compose = "2.0.0"
 navigationRuntimeKtx = "2.7.7"
 navigationCompose = "2.7.7"
 constraintLayout = "1.0.1"
+splashScreen = "1.0.1"
+glance = "1.1.0"
 
 
 [libraries]
@@ -46,6 +48,12 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-contraint-layout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintLayout"}
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen"}
+androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance"}
+androidx-glance = { module = "androidx.glance:glance", version.ref = "glance"}
+androidx-glance-appwidget-preview = { module = "androidx.glance:glance-appwidget-preview", version.ref = "glance"}
+androidx-glance-preview = { module = "androidx.glance:glance-preview", version.ref = "glance"}
+androidx-glance-tools-appwidget-host = { module = "com.google.android.glance.tools:appwidget-host"}
 
 
 [plugins]
